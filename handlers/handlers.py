@@ -2,6 +2,7 @@ from configs import *
 from database import db
 from pyrogram import Client
 from pyrogram.types import Message
+import requests as re
 
 
 async def force_sub(c, m):
@@ -44,3 +45,20 @@ async def handle_private_message(c, m):
     fsub = await force_sub(c, m)
     if fsub == 400:
         return
+
+
+async def get_shorturl(link, u_id: int):
+    try:
+        api = await db.get_api(u_id)
+      
+        site = f'https://cyberurl.in/api'
+        params = {'api': api, 'url': link}
+        r = re.get(site, params=params)
+        rs = r.json()
+        if 'status' in rs and rs['status'] == 'success' and 'shortenedUrl' in rs:
+            return rs['shortenedUrl']
+
+    except re.exceptions.RequestException as e:
+        print(f"Error occurred while accessing the shortening service: {e}")
+    except ValueError as ve:
+        print(f"Invalid response data from shortening service: {ve}")
