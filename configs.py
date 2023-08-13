@@ -4,6 +4,7 @@ from pyrogram import Client
 API_ID = int(os.environ.get("API_ID", ""))
 API_HASH = os.environ.get("API_HASH", "")
 BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
+PIC = os.environ.get("PIC", "")
 me = Client.get_me()
 username = me.username
 name = me.first_name
