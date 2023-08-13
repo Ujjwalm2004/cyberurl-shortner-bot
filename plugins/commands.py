@@ -5,7 +5,8 @@ from handlers.handlers import *
 
 @Client.on_message(filters.command('start'))
 async def start(_, m):
-    await handle_private_message‎(_, m)
+    await handle_private_message(_, m)
+    return
     await m.reply_photo(
         photo=PIC,
         chat_id=int(m.from_user.id),
