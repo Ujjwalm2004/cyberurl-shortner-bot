@@ -4,6 +4,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 
 @Client.on_message(filters.command('start'))
 async def start(_, m):
+    await handle_private_message‎(_, m)
     await m.reply_photo(
         photo=PIC,
         chat_id=int(m.from_user.id),
