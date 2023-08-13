@@ -14,7 +14,7 @@ async def start(_, m):
                 [InlineKeyboardButton("Cʜᴀɴɴᴇʟ", url="https://t.me/Cyber_Url"),
                  InlineKeyboardButton("Sᴜᴩᴩᴏʀᴛ", url="https://t.me/cyberstock_support")],
                 [InlineKeyboardButton("Eᴀʀɴ Mᴏɴᴇʏ", callback_data="earn_money")],
-                [InlineKeyboardButton("Dᴇᴠʟᴏᴩᴇʀ 👨‍💻", user_id=f"OWNER_ID"),
+                [InlineKeyboardButton("Dᴇᴠʟᴏᴩᴇʀ 👨‍💻", user_id=f"{OWNER_ID}"),
                  InlineKeyboardButton("Cʟᴏsᴇ ❌", callback_data="delete")]
             ]
         )
