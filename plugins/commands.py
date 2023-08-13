@@ -1,6 +1,7 @@
 from pyrogram import Client, filters
-from database import *
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
+from database.users import *
+from handlers.handlers import *
 
 @Client.on_message(filters.command('start'))
 async def start(_, m):
