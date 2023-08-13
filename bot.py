@@ -18,5 +18,5 @@ class cybershortner(Client):
         print(f"{BOT_USERNAME} with latest version({pv}) Started successfully..😎🤏")
         idle()
 
-  if __name__ == "__main__":
+if __name__ == "__main__":
     cybershortner.main()
