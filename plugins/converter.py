@@ -13,9 +13,7 @@ async def shrt_limk(url, u_api):
         res.raise_for_status()
         data = res.json()
         shorted = data.get('shortenedUrl')
-        return await shorted
-
-
+        return shorted
 
 @Client.on_message(filters.text)
 async def shorten_link(_, message):
@@ -23,7 +21,6 @@ async def shorten_link(_, message):
         snd_msg = await message.reply_text("Send http:// or https:// link to short")
         return snd_msg
 
-    
     u_id = message.from_user.id
     u_api = await db.get_api(u_id)
     if u_api:
@@ -31,7 +28,7 @@ async def shorten_link(_, message):
         short_links = []
 
         for link in links:
-            short_link = shrt_limk(link, u_api)
+            short_link = await shrt_limk(link, u_api)
             if short_link:
                 short_links.append(short_link)
 
