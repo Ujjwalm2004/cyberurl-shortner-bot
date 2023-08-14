@@ -44,4 +44,9 @@ async def shrt_limk(url, u_api):
         data = res.json()
         shorted = data.get('shortenedUrl')
         return shorted
+        
+    except requests.exceptions.RequestException as e:
+        err_msg = f"An error occurred: {e}"
+        print(err_msg)
+        return await message.reply_text(err_msg)
 
