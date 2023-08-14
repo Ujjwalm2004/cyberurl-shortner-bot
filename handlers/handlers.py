@@ -33,7 +33,7 @@ async def force_sub(c, m):
 
 async def adduser(c, m):
     if not await db.is_user_exist(m.from_user.id):
-        await db.add_user(message.from_user.id)
+        await db.add_user(m.from_user.id)
         if LOG_CHANNEL:
             await c.send_message(
                 LOG_CHANNEL,
