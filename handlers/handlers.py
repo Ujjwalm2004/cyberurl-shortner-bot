@@ -1,5 +1,5 @@
 from configs import *
-from database import db
+from database.users import db
 from pyrogram import Client
 from pyrogram.types import Message
 import requests as re
@@ -19,7 +19,7 @@ async def force_sub(c, m):
                     [
                         [
                             InlineKeyboardButton("Jᴏɪɴ Cʜᴀɴɴᴇʟ 📣", url=f"{FSUB_CHANNEL}"),
-                            InlineKeyboardButton("Sᴜᴩᴩᴏʀᴛ", url="https://t.me/cyberstock_support")
+                            InlineKeyboardButton("Sᴜᴩᴩᴏʀᴛ", url="https://t.me/cyberurl_support")
                         ],
                         [
                             InlineKeyboardButton("Rᴇғʀᴇsʜ 🔄", callback_data="rfrsh")
@@ -47,10 +47,8 @@ async def handle_private_message(c, m):
         return
 
 
-async def get_shorturl(link, u_id: int):
+async def short_url(link, api):
     try:
-        api = await db.get_api(u_id)
-      
         site = f'https://cyberurl.in/api'
         params = {'api': api, 'url': link}
         r = re.get(site, params=params)
