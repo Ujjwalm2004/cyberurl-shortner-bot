@@ -7,6 +7,7 @@ from handlers.handlers import *
 @Client.on_message(filters.command('start'))
 async def start(_, m):
     await handle_private_message(_, m)
+    return
     bot = await Client.get_me()
     await m.reply_photo(
         photo=PIC,
