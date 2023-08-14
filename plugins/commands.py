@@ -2,6 +2,7 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from database.users import *
 from handlers.handlers import *
+from configs import *
 
 
 SPIC = "https://graph.org/file/ee3bcb029fa01979eda96.jpg"
