@@ -3,3 +3,4 @@ tgcrypto
 aiohttp
 pymongo
 requests
+motor
