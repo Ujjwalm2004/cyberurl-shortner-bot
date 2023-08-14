@@ -4,6 +4,8 @@ from database.users import *
 from handlers.handlers import *
 
 
+PIC = "https://graph.org/file/ee3bcb029fa01979eda96.jpg"
+
 @Client.on_message(filters.command('start'))
 async def start(_, m):
     await handle_private_message(_, m)
