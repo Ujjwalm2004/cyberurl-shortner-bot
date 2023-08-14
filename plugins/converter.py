@@ -3,9 +3,6 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from handlers.handlers import short_url
 from database.users import db
 
-@filters.private
-def link_filter(_, message):
-    return message.text.startswith('http')
 
 @Client.on_message(filters.text & link_filter)
 async def shorten_link(_, message):
