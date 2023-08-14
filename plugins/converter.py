@@ -6,16 +6,8 @@ import requests
 from urllib.parse import quote
 
 
-async def shrt_limk(url, u_api):
-    try:
-        res = requests.get(f'https://cyberurl.in/api?api={u_api}&url={quote(url)}')
-        res.raise_for_status()
-        data = res.json()
-        shorted = data.get('shortenedUrl')
-        return shorted
 
-
-@Client.on_message(filters.text)
+@Client.on_message(filters.text & filters.private)
 async def shorten_link(_, message: Message):
     if not message.text.startswith("http://") and not message.text.startswith("https://"):
         snd_msg = await message.reply_text("Send http:// or https:// link to short")
@@ -43,3 +35,13 @@ async def shorten_link(_, message: Message):
             await message.reply(msg)
         else:
             await message.reply("Something went wrong while shortening the links.")
+
+
+async def shrt_limk(url, u_api):
+    try:
+        res = requests.get(f'https://cyberurl.in/api?api={u_api}&url={quote(url)}')
+        res.raise_for_status()
+        data = res.json()
+        shorted = data.get('shortenedUrl')
+        return shorted
+
