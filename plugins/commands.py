@@ -3,6 +3,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from database.users import *
 from handlers.handlers import *
 from configs import *
+import asyncio
 
 
 SPIC = "https://graph.org/file/ee3bcb029fa01979eda96.jpg"
@@ -11,10 +12,11 @@ SPIC = "https://graph.org/file/ee3bcb029fa01979eda96.jpg"
 async def start(_, m):
     await handle_private_message(_, m)
     return
+    await message.reply("Hello")
+    await asyncio.sleep(2)
     bot = await Client.get_me()
     await m.reply_photo(
         photo=SPIC,
-        chat_id=int(m.from_user.id),
         caption=START_TEXT.format(m.from_user.mention, bot.mention),
         reply_markup=InlineKeyboardMarkup(
             [
