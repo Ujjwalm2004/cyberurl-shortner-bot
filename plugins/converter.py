@@ -8,7 +8,7 @@ def link_filter(_, message):
     return message.text.startswith('http')
 
 @Client.on_message(filters.text & link_filter)
-async def shorten_link(_, message: Message):
+async def shorten_link(_, message):
     u_id = message.from_user.id
     u_api = await db.get_api(u_id)
     if u_api:
