@@ -8,10 +8,11 @@ from handlers.handlers import *
 async def start(_, m):
     await handle_private_message(_, m)
     return
+    bot = await Client.get_me()
     await m.reply_photo(
         photo=PIC,
         chat_id=int(m.from_user.id),
-        caption=START_TEXT.format(m.from_user.mention),
+        caption=START_TEXT.format(m.from_user.mention, bot.mention),
         reply_markup=InlineKeyboardMarkup(
             [
                 [InlineKeyboardButton("Hᴇʟᴩ Mᴇɴᴜ", callback_data="help"),
