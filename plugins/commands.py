@@ -31,7 +31,7 @@ async def start(_, m):
 
 
 
-Client.on_message(filters.command('set_api') & filters.private)
+@Client.on_message(filters.command('set_api') & filters.private)
 async def set_api(c, m):
     n = await m.reply_text("Pʟᴇᴀsᴇ ᴡᴀɪᴛ...")
     u_api = await db.get_api(m.from_user.id)
