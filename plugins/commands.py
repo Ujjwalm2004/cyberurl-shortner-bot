@@ -17,7 +17,7 @@ async def start(_, m):
                 [InlineKeyboardButton("Hᴇʟᴩ Mᴇɴᴜ", callback_data="help"),
                  InlineKeyboardButton("Eᴀʀɴ Mᴏɴᴇʏ", callback_data="earn_money")],
                 [InlineKeyboardButton("Cʜᴀɴɴᴇʟ", url="https://t.me/Cyber_Url"),
-                 InlineKeyboardButton("Sᴜᴩᴩᴏʀᴛ", url="https://t.me/cyberstock_support")],
+                 InlineKeyboardButton("Sᴜᴩᴩᴏʀᴛ", url="https://t.me/cyberurl_support")],
                 [InlineKeyboardButton("Cʟᴏsᴇ ❌", callback_data="delete")]
             ]
         )
@@ -31,7 +31,7 @@ async def set_api(c, m):
     if u_api:
         await n.edit(f"Yᴏᴜʀ ᴀᴩᴜ {u_api}")
     if len(m.command) == 1:
-       return await m.reply_text("**Gɪᴠᴇ ᴍᴇ ʏᴏᴜʀ ᴀᴩɪ ᴡɪᴛʜ ᴄᴏᴍᴍᴀɴᴅ**\n\n**Exᴀᴍᴩʟᴇ - /set_api ᴀᴩɪ**\n\n**Gᴇᴛ ʏᴏᴜʀ ᴀᴩɪ ᴋᴇʏ [ʜᴇʀᴇ](https://cyberurl.me/member/tools/api)**")
+       return await m.reply_text("**Gɪᴠᴇ ᴍᴇ ʏᴏᴜʀ ᴀᴩɪ ᴡɪᴛʜ ᴄᴏᴍᴍᴀɴᴅ**\n\n**Exᴀᴍᴩʟᴇ - /set_api ᴀᴩɪ**\n\n**Gᴇᴛ ʏᴏᴜʀ ᴀᴩɪ ᴋᴇʏ [ʜᴇʀᴇ](https://cyberurl.in/member/tools/api)**")
     user_id = m.from_user.id
     api = m.text.split(' ', 1)[1]
     await db.set_api(m.from_user.id, api=api)
