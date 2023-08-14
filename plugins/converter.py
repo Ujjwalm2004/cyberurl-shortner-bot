@@ -1,11 +1,10 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
-from handlers import short_url
-from database import db
-
+from handlers.handlers import short_url
+from database.users import db
 
 @filters.private
-def link_filter(_, __, message):
+def link_filter(_, message):
     return message.text.startswith('http')
 
 @Client.on_message(filters.text & link_filter)
@@ -17,7 +16,7 @@ async def shorten_link(_, message: Message):
         short_links = []
 
         for link in links:
-            short_link = short_url(link)
+            short_link = short_url(link, u_api)
             if short_link:
                 short_links.append(short_link)
 
