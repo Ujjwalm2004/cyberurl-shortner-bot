@@ -12,21 +12,21 @@ SPIC = "https://graph.org/file/ee3bcb029fa01979eda96.jpg"
 async def start(_, m):
     await m.reply("Hello")
     await handle_private_message(_, m)
-    await asyncio.sleep(2)
-    bot = await Client.get_me()
-    await m.reply_photo(
-        photo=SPIC,
-        caption=START_TEXT.format(m.from_user.mention, bot.mention),
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [InlineKeyboardButton("Hᴇʟᴩ Mᴇɴᴜ", callback_data="help"),
-                 InlineKeyboardButton("Eᴀʀɴ Mᴏɴᴇʏ", callback_data="earn_money")],
-                [InlineKeyboardButton("Cʜᴀɴɴᴇʟ", url="https://t.me/Cyber_Url"),
-                 InlineKeyboardButton("Sᴜᴩᴩᴏʀᴛ", url="https://t.me/cyberurl_support")],
-                [InlineKeyboardButton("Cʟᴏsᴇ ❌", callback_data="delete")]
-            ]
+    try:
+        bot = await Client.get_me()
+        await m.reply_photo(
+            photo=SPIC,
+            caption=START_TEXT.format(m.from_user.mention, bot.mention),
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [InlineKeyboardButton("Hᴇʟᴩ Mᴇɴᴜ", callback_data="help"),
+                     InlineKeyboardButton("Eᴀʀɴ Mᴏɴᴇʏ", callback_data="earn_money")],
+                    [InlineKeyboardButton("Cʜᴀɴɴᴇʟ", url="https://t.me/Cyber_Url"),
+                     InlineKeyboardButton("Sᴜᴩᴩᴏʀᴛ", url="https://t.me/cyberurl_support")],
+                    [InlineKeyboardButton("Cʟᴏsᴇ ❌", callback_data="delete")]
+                ]
+            )
         )
-    )
 
 
 @Client.on_message(filters.command('set_api') & filters.private)
