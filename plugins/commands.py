@@ -4,7 +4,7 @@ from database.users import *
 from handlers.handlers import *
 
 
-PIC = "https://graph.org/file/ee3bcb029fa01979eda96.jpg"
+SPIC = "https://graph.org/file/ee3bcb029fa01979eda96.jpg"
 
 @Client.on_message(filters.command('start'))
 async def start(_, m):
@@ -12,7 +12,7 @@ async def start(_, m):
     return
     bot = await Client.get_me()
     await m.reply_photo(
-        photo=PIC,
+        photo=SPIC,
         chat_id=int(m.from_user.id),
         caption=START_TEXT.format(m.from_user.mention, bot.mention),
         reply_markup=InlineKeyboardMarkup(
