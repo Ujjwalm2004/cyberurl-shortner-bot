@@ -10,9 +10,8 @@ SPIC = "https://graph.org/file/ee3bcb029fa01979eda96.jpg"
 
 @Client.on_message(filters.command('start'))
 async def start(_, m):
-    await handle_private_message(_, m)
-    return
     await message.reply("Hello")
+    await handle_private_message(_, m)
     await asyncio.sleep(2)
     bot = await Client.get_me()
     await m.reply_photo(
