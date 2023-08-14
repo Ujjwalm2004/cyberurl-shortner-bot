@@ -20,29 +20,29 @@ async def callback(bot: Client, query: CallbackQuery):
         await query.message.edit(
             HELP_TEXT.format(me.mention),
             reply_markup=InlineKeyboardMarkup(
-              [
-                  [InlineKeyboardButton("Sᴇᴛ Aᴩɪ", callback_data="api"),
-                   InlineKeyboardButton("Cᴏᴍᴍᴀɴᴅs", callback_data="commands")],
-                  [InlineKeyboardButton("Aʙᴏᴜᴛ", callback_data="api"),
-                   InlineKeyboardButton("Eᴀʀɴ Mᴏɴᴇʏ", callback_data="earn_money")],
-                  [InlineKeyboardButton("Sᴜᴩᴩᴏʀᴛ Gʀᴏᴜᴩ", url=f"https://t.me/cyberstock_support"),
-                   InlineKeyboardButton("Bᴀᴄᴋ", callback_data="start")]
-              ]
+                [
+                    [InlineKeyboardButton("Sᴇᴛ Aᴩɪ", callback_data="api"),
+                     InlineKeyboardButton("Cᴏᴍᴍᴀɴᴅs", callback_data="commands")],
+                    [InlineKeyboardButton("Aʙᴏᴜᴛ", callback_data="api"),
+                     InlineKeyboardButton("Eᴀʀɴ Mᴏɴᴇʏ", callback_data="earn_money")],
+                    [InlineKeyboardButton("Sᴜᴩᴩᴏʀᴛ Gʀᴏᴜᴩ", url=f"https://t.me/cyberstock_support"),
+                     InlineKeyboardButton("Bᴀᴄᴋ", callback_data="start")]
+                ]
             )
         )
       
     elif cb_data == "about":
-      await query.message.edit(
-        ABOUT_TEXT.format(me.first_name),
-        reply_markup=InlineKeyboardMarkup(
+        await query.message.edit(
+            ABOUT_TEXT.format(me.first_name),
+            reply_markup=InlineKeyboardMarkup(
                 [
                     [InlineKeyboardButton("Hᴇʟᴩ Mᴇɴᴜ", callback_data="help"),
                      InlineKeyboardButton("Eᴀʀɴ Mᴏɴᴇʏ", callback_data="earn_money")],
                     [InlineKeyboardButton("Sᴜᴩᴩᴏʀᴛ Gʀᴏᴜᴩ", url=f"https://t.me/cyberstock_support")],
                     [InlineKeyboardButton("Bᴀᴄᴋ", callback_data="start")]
                 ]
+            )
         )
-      )
       
     elif cb_data == "earn_money":
         await query.message.edit(
@@ -65,13 +65,13 @@ async def callback(bot: Client, query: CallbackQuery):
         await query.message.edit(
             START_TEXT.format(query.from_user.mention),
             reply_markup=InlineKeyboardMarkup(
-            [
-                [InlineKeyboardButton("Hᴇʟᴩ Mᴇɴᴜ", callback_data="help"),
-                 InlineKeyboardButton("Eᴀʀɴ Mᴏɴᴇʏ", callback_data="earn_money")],
-                [InlineKeyboardButton("Cʜᴀɴɴᴇʟ", url="https://t.me/Cyber_Url"),
-                 InlineKeyboardButton("Sᴜᴩᴩᴏʀᴛ", url="https://t.me/cyberstock_support")],
-                [InlineKeyboardButton("Cʟᴏsᴇ ❌", callback_data="delete")]
-            ]
+                [
+                    [InlineKeyboardButton("Hᴇʟᴩ Mᴇɴᴜ", callback_data="help"),
+                     InlineKeyboardButton("Eᴀʀɴ Mᴏɴᴇʏ", callback_data="earn_money")],
+                    [InlineKeyboardButton("Cʜᴀɴɴᴇʟ", url="https://t.me/Cyber_Url"),
+                     InlineKeyboardButton("Sᴜᴩᴩᴏʀᴛ", url="https://t.me/cyberstock_support")],
+                    [InlineKeyboardButton("Cʟᴏsᴇ ❌", callback_data="delete")]
+                ]
             )
         )
             
@@ -90,12 +90,8 @@ async def callback(bot: Client, query: CallbackQuery):
                     text="**I Don't like Your Silliness, Don't Be Oversmart! 😑**\n\n",
                     reply_markup=InlineKeyboardMarkup(
                         [
-                            [
-                                InlineKeyboardButton("😇 Join Channel 😇", url=f"https://t.me/{FSUB_CHANNEL}")
-                            ],
-                            [
-                                InlineKeyboardButton("🔄 Refresh 🔄", callback_data="rfrsh")
-                            ]
+                            [InlineKeyboardButton("😇 Join Channel 😇", url=f"https://t.me/{FSUB_CHANNEL}")],
+                            [InlineKeyboardButton("🔄 Refresh 🔄", callback_data="rfrsh")]
                         ]
                     )
                 )
@@ -105,14 +101,11 @@ async def callback(bot: Client, query: CallbackQuery):
                 START_TEXT.format(query.from_user.mention),
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(
-                  [
-                    [InlineKeyboardButton("Hᴇʟᴩ Mᴇɴᴜ", callback_data="help"),
-                     InlineKeyboardButton("Eᴀʀɴ Mᴏɴᴇʏ", callback_data="earn_money")],
-                    [InlineKeyboardButton("Cʜᴀɴɴᴇʟ", url="https://t.me/Cyber_Url"),
-                    [InlineKeyboardButton("Cʟᴏsᴇ ❌", callback_data="delete")]
-                  ]
+                    [
+                        [InlineKeyboardButton("Hᴇʟᴩ Mᴇɴᴜ", callback_data="help"),
+                         InlineKeyboardButton("Eʀɴ Mᴏɴᴇʏ", callback_data="earn_money")],
+                        [InlineKeyboardButton("Cʜɴɴᴇʟ", url="https://t.me/Cyber_Url"),
+                         InlineKeyboardButton("Cʟᴏsᴇ ❌", callback_data="delete")]
+                    ]
                 )
             )
-            
-              
-      
