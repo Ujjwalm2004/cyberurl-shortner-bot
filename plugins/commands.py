@@ -24,25 +24,29 @@ async def set_api(c, m):
 
 SPIC = "https://graph.org/file/ee3bcb029fa01979eda96.jpg"
 
-@Client.on_message(filters.command('start'))
+@Client.on_message(filters.command('start') & filters.private)
 async def start(_, m):
-    await m.reply("Hello")
-    await handle_private_message(_, m)
-    try:
-        bot = await Client.get_me()
-        await m.reply_photo(
-            photo=SPIC,
-            caption=START_TEXT.format(m.from_user.mention, bot.mention),
-            reply_markup=InlineKeyboardMarkup(
-                [
-                    [InlineKeyboardButton("Hᴇʟᴩ Mᴇɴᴜ", callback_data="help"),
-                     InlineKeyboardButton("Eᴀʀɴ Mᴏɴᴇʏ", callback_data="earn_money")],
-                    [InlineKeyboardButton("Cʜᴀɴɴᴇʟ", url="https://t.me/Cyber_Url"),
-                     InlineKeyboardButton("Sᴜᴩᴩᴏʀᴛ", url="https://t.me/cyberurl_support")],
-                    [InlineKeyboardButton("Cʟᴏsᴇ ❌", callback_data="delete")]
-                ]
+    await handle_private_message(client, message)
+
+    text = message.text
+    cmd = text.split("_", 1)[-1]
+
+    if cmd == "/start":
+        try:
+            bot = await Client.get_me()
+            await m.reply_photo(
+                photo=SPIC,
+                caption=START_TEXT.format(m.from_user.mention, bot.mention),
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                        [InlineKeyboardButton("Hᴇʟᴩ Mᴇɴᴜ", callback_data="help"),
+                         InlineKeyboardButton("Eᴀʀɴ Mᴏɴᴇʏ", callback_data="earn_money")],
+                        [InlineKeyboardButton("Cʜᴀɴɴᴇʟ", url="https://t.me/Cyber_Url"),
+                         InlineKeyboardButton("Sᴜᴩᴩᴏʀᴛ", url="https://t.me/cyberurl_support")],
+                        [InlineKeyboardButton("Cʟᴏsᴇ ❌", callback_data="delete")]
+                    ]
+                )
             )
-        )
 
 
 #@Client.on_message(filters.command('set_api') & filters.private)
